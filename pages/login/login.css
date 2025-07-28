@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('../../assert/foggy-forest-4.jpg');
+    background-position: center;
+
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box {
+    width: 380px;
+    height: 500px;
+    position: relative;
+    background: rgba(255,255,255,0.9);
+    background-color: #dfdcdcb6;
+    backdrop-filter: blur(10px);
+    padding: 5px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    color: #333;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #4CAF50, #45a049);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.social-icons {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.input-group {
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+    left: 50px;
+}
+
+.input-field {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-field i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    transition: 0.3s;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 36px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input:focus {
+    border-color: #4CAF50;
+}
+
+.input:focus + i {
+    color: #4CAF50;
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    background: linear-gradient(to right, #4CAF50, #45a049);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: #fff;
+    transition: transform 0.3s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.03);
+}
+
+.forgot-password {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.forgot-password a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+#login {
+    left: 50px;
+}
+
+#register {
+    left: 450px;
+}
