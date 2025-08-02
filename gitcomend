@@ -1,82 +1,94 @@
 
 =============================
-     Git Commands Cheat Sheet
-     For Dev1 and Dev2 Branches
-     Working on demo.txt
+    FULL GIT COMMAND GUIDE
 =============================
 
-🔹 Common Setup (Both Dev1 & Dev2 - First Time Only)
----------------------------------------------------
-git clone https://github.com/bhavneetv/ecoCycle.git
-    cd ecoCycle
+This file includes commands for:
+- Pushing code/files to main
+- Pushing files to branches (dev1/dev2)
+- Cloning, committing, pulling, and merging
+- One-liners for quick use
 
 =============================
-👨‍💻 DEV1 COMMANDS (Bhavneet)
+📦 CLONE REPOSITORY (First Time)
 =============================
-
-✅ Create and Switch to Branch 'dev1'
-git checkout -b dev1
-
-✅ Make changes to demo.txt, then save and push
-git add demo.txt
-git commit -m "Dev1: updated demo.txt"
-git push origin dev1
-
-✅ Pull latest updates from dev1 branch
-git checkout dev1
-git pull origin dev1
-
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
 
 =============================
-📦 Push All Files in Project
+🌿 WORKING ON MAIN BRANCH
 =============================
+
+✅ Switch to main branch:
+git checkout main
+
+✅ Add a new file (e.g., notes.txt):
+git add notes.txt
+
+✅ Commit changes:
+git commit -m "Added notes.txt"
+
+✅ Push to main branch:
+git push origin main
+
+✅ 🔁 One-liner:
+git checkout main && git add notes.txt && git commit -m "Added notes.txt" && git push origin main
+
+✅ Push all files in project to main:
 git add .
-git commit -m "Your commit message here"
-git push origin dev1 
-
+git commit -m "Updated full project"
+git push origin main
 
 =============================
-👨‍💻 DEV2 COMMANDS (VIpul)
+🌿 WORKING ON BRANCHES (dev1 / dev2)
 =============================
 
-✅ Create and Switch to Branch 'dev2'
-git checkout -b dev2
+✅ Create and switch to a branch:
+git checkout -b dev1        # or dev2
 
-✅ Make changes to demo.txt, then save and push
+✅ Switch to existing branch:
+git checkout dev1           # or dev2
+
+✅ Add specific file (e.g., demo.txt):
 git add demo.txt
-git commit -m "Dev2: updated demo.txt"
-git push origin dev2
 
-✅ Pull latest updates from dev2 branch
-git checkout dev2
-git pull origin dev2
-
-=============================
-📦 Push All Files in Project
-=============================
+✅ Or add all files:
 git add .
-git commit -m "Your commit message here"
-git push origin dev2
 
+✅ Commit your changes:
+git commit -m "Updated demo.txt"
+
+✅ Push to your branch:
+git push origin dev1        # or dev2
+
+✅ Pull latest updates from branch:
+git pull origin dev1        # or dev2
+
+✅ 🔁 One-liner:
+git add . && git commit -m "Updated files" && git push origin dev1   # or dev2
 
 =============================
-🔁 After Merge on GitHub (All Devs)
+🔁 MERGING TO MAIN (After Review)
 =============================
+
+✅ On GitHub:
+- Create Pull Request from dev1 or dev2 to main
+- Review and Merge
+
+✅ Then update local main:
 git checkout main
 git pull origin main
 
+=============================
+🧼 OPTIONAL CLEANUP
+=============================
+
+✅ Delete a merged branch (locally):
+git branch -d dev1
+
+✅ Delete a branch from remote:
+git push origin --delete dev1
 
 =============================
-💡 One-Liner Commit + Push
-=============================
-git add demo.txt && git commit -m "Updated file" && git push origin dev1   # or dev2
 
-
-=============================
-📦 Push All Files in Project
-=============================
-git add .
-git commit -m "Your commit message here"
-git push origin dev1   # or dev2
-
-# This adds and pushes ALL files and changes in the repo.
+End of Git Command Guide
