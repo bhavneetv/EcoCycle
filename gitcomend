@@ -1,0 +1,82 @@
+
+=============================
+     Git Commands Cheat Sheet
+     For Dev1 and Dev2 Branches
+     Working on demo.txt
+=============================
+
+🔹 Common Setup (Both Dev1 & Dev2 - First Time Only)
+---------------------------------------------------
+git clone https://github.com/bhavneetv/ecoCycle.git
+    cd ecoCycle
+
+=============================
+👨‍💻 DEV1 COMMANDS (Bhavneet)
+=============================
+
+✅ Create and Switch to Branch 'dev1'
+git checkout -b dev1
+
+✅ Make changes to demo.txt, then save and push
+git add demo.txt
+git commit -m "Dev1: updated demo.txt"
+git push origin dev1
+
+✅ Pull latest updates from dev1 branch
+git checkout dev1
+git pull origin dev1
+
+
+=============================
+📦 Push All Files in Project
+=============================
+git add .
+git commit -m "Your commit message here"
+git push origin dev1 
+
+
+=============================
+👨‍💻 DEV2 COMMANDS (VIpul)
+=============================
+
+✅ Create and Switch to Branch 'dev2'
+git checkout -b dev2
+
+✅ Make changes to demo.txt, then save and push
+git add demo.txt
+git commit -m "Dev2: updated demo.txt"
+git push origin dev2
+
+✅ Pull latest updates from dev2 branch
+git checkout dev2
+git pull origin dev2
+
+=============================
+📦 Push All Files in Project
+=============================
+git add .
+git commit -m "Your commit message here"
+git push origin dev2
+
+
+=============================
+🔁 After Merge on GitHub (All Devs)
+=============================
+git checkout main
+git pull origin main
+
+
+=============================
+💡 One-Liner Commit + Push
+=============================
+git add demo.txt && git commit -m "Updated file" && git push origin dev1   # or dev2
+
+
+=============================
+📦 Push All Files in Project
+=============================
+git add .
+git commit -m "Your commit message here"
+git push origin dev1   # or dev2
+
+# This adds and pushes ALL files and changes in the repo.
