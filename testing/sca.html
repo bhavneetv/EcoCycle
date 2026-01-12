@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast QR/Barcode Scanner</title>
+<style>
+body { font-family: Arial; text-align: center; margin: 20px; }
+#scanner-container { width: 100%; max-width: 400px; margin: auto; }
+#output { margin-top: 20px; font-size: 18px; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Fast QR/Barcode Scanner</h1>
+<div id="scanner-container"></div>
+<div id="output">Scanning...</div>
+
+<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+<script>
+const output = document.getElementById("output");
+
+// Initialize scanner
+const html5QrCode = new Html5Qrcode("scanner-container");
+
+// Scanner config
+const config = {
+    fps: 30, // faster scanning
+    qrbox: 400, // larger scan area
+    formatsToSupport: [
+        Html5QrcodeSupportedFormats.QR_CODE,
+        Html5QrcodeSupportedFormats.EAN_13,
+        Html5QrcodeSupportedFormats.CODE_128,
+        Html5QrcodeSupportedFormats.UPC_A,
+        Html5QrcodeSupportedFormats.UPC_E
+    ],
+    experimentalFeatures: {
+        useBarCodeDetectorIfSupported: true
+    }
+};
+
+// Scan success
+function onScanSuccess(decodedText, decodedResult) {
+    output.innerText = "Detected: " + decodedText;
+    console.log("Detected:", decodedText);
+    // Optional: stop scanning after first detection
+    // html5QrCode.stop().catch(err => console.error(err));
+}
+
+// Scan failure (optional)
+function onScanFailure(error) {
+    // console.warn("Scan failure:", error);
+}
+
+// Start scanning with back camera
+Html5Qrcode.getCameras().then(cameras => {
+    if (cameras && cameras.length) {
+        const cameraId = cameras[0].id;
+        html5QrCode.start(
+            { deviceId: { exact: cameraId }, zoom: 2.5 },
+            config,
+            onScanSuccess,
+            onScanFailure
+        ).then(() => {
+            console.log("Scanner started with zoom 2.5x");
+        }).catch(err => {
+            output.innerText = "Error starting scanner: " + err;
+        });
+    } else {
+        output.innerText = "No cameras found";
+    }
+}).catch(err => {
+    output.innerText = "Error getting cameras: " + err;
+});
+</script>
+</body>
+</html>
+      

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCycle Dashboard</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            /* animation: gradientShift 15s ease infinite; */
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .scan-box {
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .mobile-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+        }
+
+        @media (max-width: 768px) {
+            .gradient-bg {
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                background-attachment: scroll;
+            }
+        }
+
+        .sidebar-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scroll {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Navigation -->
+    <?php include 'includes/navbar.php'; ?>
+
+    <!-- Sidebar -->
+    <?php include 'includes/sidebar.php'; ?>
+   
+
+    <!-- Main Content -->
+    <main class="pt-16 lg:pl-64 min-h-screen">
+        <div class="p-6">
+            <!-- Welcome Card -->
+            <div class="glass rounded-2xl p-6 mb-6 card-hover">
+                <h2 class="text-2xl font-bold text-white mb-2">Hi, John Doe 👋</h2>
+                <p class="text-gray-300">Recycle & Earn rewards while saving the planet!</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Bottles Recycled</p>
+                            <p class="text-3xl font-bold text-white">247</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Reward Points</p>
+                            <p class="text-3xl font-bold text-white">1,247</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Wallet Balance</p>
+                            <p class="text-3xl font-bold text-white">₹847</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">CO₂ Saved</p>
+                            <p class="text-3xl font-bold text-white">12.4kg</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scan Bottle Section -->
+            <div class="glass rounded-2xl p-6 mb-8 card-hover">
+                <h3 class="text-xl font-semibold text-white mb-4">Scan a Bottle</h3>
+                <p class="text-gray-300 mb-6">Ready to recycle? Scan your bottle barcode to earn points!</p>
+                <button id="startScanBtn"
+                    class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Start Scanning
+                </button>
+            </div>
+
+            <!-- Recycling History -->
+            <div class="glass rounded-2xl p-6 card-hover">
+                <h3 class="text-xl font-semibold text-white mb-4">Recent Activity</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="text-left py-3 px-4 text-gray-300 font-medium">Date</th>
+                                <th class="text-left py-3 px-4 text-gray-300 font-medium">Bottle Name</th>
+                                <th class="text-left py-3 px-4 text-gray-300 font-medium">Quantity</th>
+                                <th class="text-left py-3 px-4 text-gray-300 font-medium">Points</th>
+                                <th class="text-left py-3 px-4 text-gray-300 font-medium">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700/50 hover:bg-white/5 transition-colors">
+                                <td class="py-3 px-4 text-gray-300">Aug 24, 2025</td>
+                                <td class="py-3 px-4 text-white">Coca Cola 500ml</td>
+                                <td class="py-3 px-4 text-gray-300">2</td>
+                                <td class="py-3 px-4 text-green-400">+20</td>
+                                <td class="py-3 px-4"><span
+                                        class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">Completed</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-700/50 hover:bg-white/5 transition-colors">
+                                <td class="py-3 px-4 text-gray-300">Aug 23, 2025</td>
+                                <td class="py-3 px-4 text-white">Pepsi 1L</td>
+                                <td class="py-3 px-4 text-gray-300">1</td>
+                                <td class="py-3 px-4 text-green-400">+15</td>
+                                <td class="py-3 px-4"><span
+                                        class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">Completed</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-700/50 hover:bg-white/5 transition-colors">
+                                <td class="py-3 px-4 text-gray-300">Aug 22, 2025</td>
+                                <td class="py-3 px-4 text-white">Water Bottle 500ml</td>
+                                <td class="py-3 px-4 text-gray-300">3</td>
+                                <td class="py-3 px-4 text-green-400">+15</td>
+                                <td class="py-3 px-4"><span
+                                        class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Processing</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scan Modal -->
+    <div id="scanModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center">
+        <div class="w-full h-full max-w-md mx-auto bg-black relative">
+            <div class="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+                <h3 class="text-white text-lg font-semibold">Scan Bottle</h3>
+                <button id="closeScanModal" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Camera Preview Placeholder -->
+            <div class="w-full h-full bg-gray-900 flex items-center justify-center relative">
+                <div class="text-center">
+                    <div
+                        class="w-64 h-64 border-2 border-dashed border-gray-600 rounded-lg flex items-center justify-center mb-4 scan-box">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V6a1 1 0 00-1-1H5a1 1 0 00-1 1v1a1 1 0 001 1z">
+                                </path>
+                            </svg>
+                            <p class="text-gray-400">Position barcode here</p>
+                        </div>
+                    </div>
+                    <p class="text-white text-sm">Align the barcode within the scanning area</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 to-black py-6 mt-12 lg:pl-64">
+        <div class="px-6">
+            <p class="text-center text-gray-400 text-sm">© 2025 EcoCycle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const profileToggle = document.getElementById('profileToggle');
+        const profileDropdown = document.getElementById('profileDropdown');
+        const themeToggle = document.getElementById('themeToggle');
+        const startScanBtn = document.getElementById('startScanBtn');
+        const scanModal = document.getElementById('scanModal');
+        const closeScanModal = document.getElementById('closeScanModal');
+        const navbar = document.getElementById('navbar');
+
+        // Sidebar Toggle
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            });
+
+            // Profile Dropdown
+            profileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                profileDropdown.classList.add('hidden');
+            });
+
+            // Theme Toggle (Dark/Light mode)
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+
+                // Update icon based on theme
+                const icon = themeToggle.querySelector('svg');
+                if (isDark) {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+                } else {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+                }
+            });
+
+            // Scan Modal Functions
+            startScanBtn.addEventListener('click', () => {
+                scanModal.classList.remove('hidden');
+                // Here you would typically initialize camera/barcode scanning
+                initializeScannerPlaceholder();
+            });
+
+            closeScanModal.addEventListener('click', () => {
+                scanModal.classList.add('hidden');
+                // Stop camera/scanner
+                stopScannerPlaceholder();
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !scanModal.classList.contains('hidden')) {
+                    scanModal.classList.add('hidden');
+                    stopScannerPlaceholder();
+                }
+            });
+
+            // Scanner Placeholder Functions
+            function initializeScannerPlaceholder() {
+                console.log('Scanner initialized - Ready to scan barcodes');
+                // This is where you would integrate with a barcode scanning library
+                // Example: QuaggaJS, ZXing, or a mobile camera API
+            }
+
+            function stopScannerPlaceholder() {
+                console.log('Scanner stopped');
+                // Stop camera stream and cleanup
+            }
+
+            // Navbar Scroll Effect
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    navbar.style.transform = 'translateY(0)';
+                }
+
+                // Add shadow when scrolled
+                if (scrollTop > 50) {
+                    navbar.classList.add('shadow-lg');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                }
+
+                lastScrollTop = scrollTop;
+            });
+
+            // Simulate real-time updates (optional)
+            function simulateUpdates() {
+                const stats = {
+                    bottles: document.querySelector('.glass:nth-child(1) .text-3xl'),
+                    points: document.querySelector('.glass:nth-child(2) .text-3xl'),
+                    wallet: document.querySelector('.glass:nth-child(3) .text-3xl'),
+                    co2: document.querySelector('.glass:nth-child(4) .text-3xl')
+                };
+
+                // Simulate periodic updates every 30 seconds
+                setInterval(() => {
+                    // Randomly increment values
+                    if (Math.random() > 0.7) {
+                        const currentBottles = parseInt(stats.bottles.textContent);
+                        stats.bottles.textContent = currentBottles + 1;
+
+                        const currentPoints = parseInt(stats.points.textContent.replace(',', ''));
+                        stats.points.textContent = (currentPoints + 5).toLocaleString();
+
+                        const currentWallet = parseInt(stats.wallet.textContent.replace('₹', ''));
+                        stats.wallet.textContent = '₹' + (currentWallet + 2);
+
+                        const currentCO2 = parseFloat(stats.co2.textContent.replace('kg', ''));
+                        stats.co2.textContent = (currentCO2 + 0.1).toFixed(1) + 'kg';
+                    }
+                }, 30000);
+            }
+
+            // Initialize app
+            document.addEventListener('DOMContentLoaded', () => {
+                // Add loading animation
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.style.transition = 'opacity 0.5s ease';
+                    document.body.style.opacity = '1';
+                }, 100);
+
+                // Start simulated updates
+                simulateUpdates();
+
+                // Add entrance animations to cards
+                const cards = document.querySelectorAll('.card-hover');
+                cards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            });
+
+            // Mobile-specific optimizations
+            if ('ontouchstart' in window) {
+                // Add touch-specific styles
+                document.body.classList.add('touch-device');
+
+                // Prevent zoom on double tap
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function (event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+            }
+
+            // Service Worker for PWA capabilities (optional)
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    // Register service worker here if needed
+                    console.log('PWA capabilities available');
+                });
+            }
+            classList.toggle('hidden');
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>
